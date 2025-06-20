@@ -1,0 +1,33 @@
+openapi: 3.1.0
+info:
+  title: Fortuny Duty Robot
+  version: '1.0'
+servers:
+  - url: https://duty-robot.onrender.com          # <— incolla il tuo URL
+paths:
+  /duty:
+    get:
+      operationId: getDuty
+      description: Ritorna il dazio per un codice HTS e un Paese
+      parameters:
+        - in: query
+          name: code
+          required: true
+          schema: { type: string, example: '4011101020' }
+        - in: query
+          name: country
+          required: true
+          schema: { type: string, example: 'Thailand' }
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  hts_code:      { type: string }
+                  country:       { type: string }
+                  base_rate:     { type: number }
+                  surcharge_301: { type: number }
+                  total_rate:    { type: number }

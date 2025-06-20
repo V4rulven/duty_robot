@@ -13,11 +13,15 @@ paths:
         - in: query
           name: code
           required: true
-          schema: { type: string, example: '4011101020' }
+          schema:
+            type: string
+            example: '4011101020'
         - in: query
           name: country
           required: true
-          schema: { type: string, example: 'Thailand' }
+          schema:
+            type: string
+            example: 'Thailand'
       responses:
         '200':
           description: OK

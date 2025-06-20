@@ -3,7 +3,7 @@ info:
   title: Fortuny Duty Robot
   version: '1.0'
 servers:
-  - url: https://duty-robot.onrender.com          # <— incolla il tuo URL
+  - url: https://duty-robot.onrender.com
 paths:
   /duty:
     get:

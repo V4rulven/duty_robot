@@ -34,9 +34,11 @@ HEADERS = {
 def duty(code: str, country: str):
     url = HTS_API.format(c=code[:10])
     try:
-        r = requests.get(url, headers=HEADERS, timeout=10)
-        r.raise_for_status()
-        data = r.json()
+       r = requests.get(url, headers=HEADERS, timeout=10)
+print("HTS status", r.status_code, r.headers.get("content-type"))
+print(r.text[:250])          # primi 250 caratteri di risposta
+r.raise_for_status()
+data = r.json()
         if not data:
             raise HTTPException(404, "Codice HTS non trovato")
         # ... come prima
